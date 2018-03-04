@@ -2,7 +2,7 @@
 <head>
 <title> North Dakota P1 </title>
 <meta charset="utf-8" />
-<link rel= "stylesheet" href="style.css">
+<?php echo Asset::css('northdakota.css'); ?>
 <meta name= "author" content= "Isaac Hall, Zachary Rule">
 <meta name= "description" content= "This site is part of a CSU CT 310 Course Project.">
 </head>
