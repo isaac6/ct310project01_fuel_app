@@ -1,17 +1,7 @@
 <?php
-/**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.8
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2016 Fuel Development Team
- * @link       http://fuelphp.com
- */
 
 /**
- * The Welcome Controller.
+ * North Dakota Controller
  *
  * A basic controller example.  Has examples of how to set the
  * response body and status.
@@ -22,14 +12,19 @@
 class Controller_NorthDakota extends Controller
 {
 	/**
-	 * The basic welcome message
+	 * Index page
 	 *
 	 * @access  public
-	 * @return  Response
+	 * @return  View
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('northdakota/index'));
+		$views = array();
+
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+
+        return View::forge('northdakota/index', $views);
 	}	
 
 	/**

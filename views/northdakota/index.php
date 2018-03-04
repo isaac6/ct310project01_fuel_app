@@ -1,11 +1,14 @@
 <html>
 <head>
 <title> North Dakota P1 </title>
+<meta charset="utf-8" />
 <link rel= "stylesheet" href="style.css">
 <meta name= "author" content= "Isaac Hall, Zachary Rule">
 <meta name= "description" content= "This site is part of a CSU CT 310 Course Project.">
 </head>
 <body>
+
+<?php echo $header; ?>
 
 <?php 
 if (!(isset($_POST['username']) || isset ($_POST['password']))) {?>
@@ -26,7 +29,7 @@ else {
 		header('Location: loggedin.php');
 	}elseif(($username === 'zachrule') && (md5($password) === '3bc5be6ae2353708a6612962db3e587b')){
                 session_start();
-                $_SESSION['username'] = 'ct310';
+                $_SESSION['username'] = 'zachrule';
                 $_SESSION['id'] = 123456;
                 header('Location: loggedin.php');
         }
@@ -37,7 +40,6 @@ else {
 }
 ?>
 	
-</body>
 <h1> North Dakota </h1>
 <nav>
 <a href="">About Us</a><p>|</p>
@@ -45,4 +47,8 @@ else {
 <a href="">International Peace Garden</a><p>|</p>
 <a href="">Maah Daah Hey Trail</a><p>|</p>
 </nav>
+
+<?php echo $footer; ?>
+
+</body>
 </html>
