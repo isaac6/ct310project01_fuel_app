@@ -16,3 +16,7 @@ tmp/
 vendor/
 views/demo
 views/login
+views/welcome
+bootstrap.php
+.nfs*
+
