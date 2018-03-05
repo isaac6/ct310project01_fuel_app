@@ -24,4 +24,9 @@ views/login
 views/welcome
 bootstrap.php
 .nfs*
+classes/controller/demo.php~
+classes/controller/fetch.php
+classes/controller/home.php
+views/testOne/
+
 
