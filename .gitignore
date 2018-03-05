@@ -4,7 +4,12 @@ classes/model/demo.php
 classes/controller/welcome.php
 classes/controller/demo.php
 classes/controller/login.php
-config/
+config/db.php
+config/routes.php
+config/production/
+config/test/
+config/staging/
+config/development/
 lang/
 logs/
 migrations/
