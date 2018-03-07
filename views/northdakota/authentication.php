@@ -6,8 +6,8 @@
 
     $session = Session::instance();
     $authenticated = $session->get('authenticated');
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    //$username = $_POST['username'];
+    //$password = $_POST['password'];
 
 
     if (!$authenticated) {?>
