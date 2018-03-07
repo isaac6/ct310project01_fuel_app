@@ -27,7 +27,22 @@ class Controller_NorthDakota extends Controller
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/index', $views);
-	}	
+	}
+
+    /*
+    About Us page
+    @access public
+    @return View
+    */
+    public function action_aboutus(){
+        $views = array();
+
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+
+        return View::forge('northdakota/aboutus', $views);
+    }	
 
 	/**
 	 * The 404 action for the application.

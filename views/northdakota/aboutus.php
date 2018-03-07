@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>North Dakota | Index</title>
+	<title>North Dakota | About Us</title>
 	<meta charset="utf-8" />
 	<?php echo Asset::css('northdakota.css'); ?>
 	<meta name= "author" content= "Isaac Hall, Zachary Rule">
@@ -15,12 +15,8 @@
 
     <div id="content">
 
-	    <h1>North Dakota</h1>
+	    <h1>About Us</h1>
 	    <p>Main page content here</p>
-
-		<?php echo $authentication; ?>
-
-	    <br/><p>more page content...</p>
 
     </div>
 
