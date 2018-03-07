@@ -42,7 +42,52 @@ class Controller_NorthDakota extends Controller
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/aboutus', $views);
-    }	
+    }
+
+	/*
+    Theodore Roosevelt National Park page
+    @access public
+    @return View
+    */
+    public function action_attraction1(){
+        $views = array();
+
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+
+        return View::forge('northdakota/attraction1', $views);
+    }
+
+	/*
+    International Peace Garden page
+    @access public
+    @return View
+    */
+    public function action_attraction2(){
+        $views = array();
+
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+
+        return View::forge('northdakota/attraction2', $views);
+    }
+
+	/*
+    Maah Daah Hey Trail page
+    @access public
+    @return View
+    */
+    public function action_attraction3(){
+        $views = array();
+
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+
+        return View::forge('northdakota/attraction3', $views);
+    }
 
 	/**
 	 * The 404 action for the application.
