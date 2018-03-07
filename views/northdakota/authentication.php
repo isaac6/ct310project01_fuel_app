@@ -1,5 +1,5 @@
 <div id="authentication">
-    <?php
+	<?php
     if (!(isset($_POST['username']) || isset ($_POST['password']))) {?>
         <h4>Login</h4>
         <form action="index.php" method="POST">

@@ -12,16 +12,16 @@
 	<?php echo $header; ?>
 
     <?php echo $navigation; ?>
-
+ 
     <div id="content">
+      
+     <?php echo $authentication; ?>
 
-		<?php echo $authentication; ?>
-
+	    
 		<div id="main">
 
-	    	<h1>North Dakota</h1>
-	    	<p>Main page content here</p>
-	    	<br/><p>more page content...</p>
+	    <h1>Home</h1>
+	    <p>North Dakota is a state in the midwestern and northern regions of the United States. It is the nineteenth largest in area, the fourth smallest by population, and the fourth most sparsely populated of the 50 states. North Dakota was admitted as the 39th state to the Union on November 2, 1889. Its capital is Bismarck, and its largest city is Fargo.</p>
 
 		</div>
 
