@@ -15,12 +15,15 @@
 
     <div id="content">
 
-	    <h1>North Dakota</h1>
-	    <p>Main page content here</p>
-
 		<?php echo $authentication; ?>
 
-	    <br/><p>more page content...</p>
+		<div id="main">
+
+	    	<h1>North Dakota</h1>
+	    	<p>Main page content here</p>
+	    	<br/><p>more page content...</p>
+
+		</div>
 
     </div>
 
