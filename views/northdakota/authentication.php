@@ -1,9 +1,10 @@
 <div id="authentication">
 	<?php
     if (!(isset($_POST['username']) || isset ($_POST['password']))) {?>
+        <h4>Login</h4>
         <form action="index.php" method="POST">
-            <input type="text" name="username" placeholder="Please enter username"/>
-            <input type="password" name="password" placeholder="Please enter password"/>
+            <input type="text" name="username" placeholder="Please enter username" class="bottom_margin_small"/><br/>
+            <input type="password" name="password" placeholder="Please enter password" class="bottom_margin_small"/><br/>
             <input type="submit" value="submit">
         </form>
     <?php
