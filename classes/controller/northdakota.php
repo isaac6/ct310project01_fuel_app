@@ -54,6 +54,7 @@ class Controller_NorthDakota extends Controller
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
+		$views['authentication'] = View::forge('northdakota/authentication')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/attraction1', $views);
@@ -69,6 +70,7 @@ class Controller_NorthDakota extends Controller
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
+		$views['authentication'] = View::forge('northdakota/authentication')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/attraction2', $views);
@@ -84,6 +86,7 @@ class Controller_NorthDakota extends Controller
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
+		$views['authentication'] = View::forge('northdakota/authentication')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/attraction3', $views);
