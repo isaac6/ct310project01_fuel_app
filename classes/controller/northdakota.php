@@ -22,6 +22,8 @@ class Controller_NorthDakota extends Controller
 		$views = array();
 
         $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['authentication'] = View::forge('northdakota/authentication')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
 
         return View::forge('northdakota/index', $views);
