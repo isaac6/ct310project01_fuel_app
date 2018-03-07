@@ -19,6 +19,15 @@
 	    <?php echo Asset::img('garden.jpg', array('id' => 'gardentowers')); ?>
 	    <p>The International Peace Garden is a 3.65-square-mile (9.5 km2) park located adjacent to the International Peace Garden Border Crossing between Canada and the United States, in the state of North Dakota and the province of Manitoba. It was established on July 14, 1932, as a symbol of the peaceful relationship between the two nations.The park plants over 150,000 flowers each year. Main features of the garden include an 18-foot (5.5 m) floral clock display, fountains, a chime, and twin 120-foot (37 m) concrete towers straddling the border with a peace chapel at their base.</p>
     	    <h2>Comments</h2>
+            <?php
+            session_start();
+
+
+            if(!isset($_SESSION['username']))
+            echo "You must login to view this page. Login <a href='index.php'>here</a>";
+            else {
+            }
+            ?>
     </div>
 
 	<?php echo $footer; ?>
