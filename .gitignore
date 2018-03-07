@@ -5,7 +5,7 @@ classes/controller/welcome.php
 classes/controller/demo.php
 classes/controller/login.php
 config/db.php
-config/routes.php
+config/crypt.php
 config/production/
 config/test/
 config/staging/

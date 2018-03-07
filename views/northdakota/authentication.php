@@ -1,8 +1,18 @@
 <div id="authentication">
-	<?php
-    if (!(isset($_POST['username']) || isset ($_POST['password']))) {?>
+
+    <?php
+
+    Session::create();
+
+    $session = Session::instance();
+    $authenticated = $session->get('authenticated');
+    //$username = $_POST['username'];
+    //$password = $_POST['password'];
+
+
+    if (!$authenticated) {?>
         <h4>Login</h4>
-        <form action="index.php" method="POST">
+        <form action="http://www.cs.colostate.edu/~isaach/ct310/index.php/northdakota" method="POST">
             <input type="text" name="username" placeholder="Please enter username" class="bottom_margin_small"/><br/>
             <input type="password" name="password" placeholder="Please enter password" class="bottom_margin_small"/><br/>
             <input type="submit" value="submit">
@@ -10,13 +20,10 @@
     <?php
     }
     else {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
         if(($username === 'ct310') && (md5($password) === 'a6cebbf02cc311177c569525a0f119d7')){
-            session_start();
-            $_SESSION['username'] = 'ct310';
-            $_SESSION['id'] = 12345;
-            echo "<strong>Logged in!</strong>";
+            Session::set('authenticated', true);
+        } else if (($username === 'isaach') && (md5($password) === '456b7016a916a4b178dd72b947c152b7')) {
+            Session::set('authenticated', true);
         }elseif(($username === 'zachrule') && (md5($password) === '3bc5be6ae2353708a6612962db3e587b')){
             session_start();
             $_SESSION['username'] = 'zachrule';
@@ -25,6 +32,7 @@
         }else{
             echo '<strong>Invalid Credentials</strong>';
         }
+        echo '<strong>Test</strong>';
     }
     ?>
 </div>
