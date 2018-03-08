@@ -11,6 +11,8 @@
 <body>
 	<?php echo $header; ?>
 
+    <?php echo $navigation; ?>
+
     <div id="content">
 
 		<?php echo $authentication; ?>
