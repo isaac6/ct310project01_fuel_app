@@ -16,8 +16,9 @@
     <div id="content">
 
 	    <h1>Theodore Roosevelt National Park</h1>
-	    <?php echo Asset::img('teddy.jpg', array('id' => 'teddyportrait')); ?>
-	    <?php echo Asset::img('buffalo.jpg', array('id' => 'buffalograss')); ?>
+	    <?php echo '<a href="https://www.flickr.com/photos/nationalparkservice/35403022943"><img src="http://www.cs.colostate.edu/~zachrule/ct310/assets/img/teddy.jpg"/></a> ' ?>
+	    <?php echo '<a href="https://everywhereonce.com/2011/10/10/teddy-roosevelt-bison/"><img src="http://www.cs.colostate.edu/~zachrule/ct310/assets/img/buffalo.jpg"/></a> ' ?>
+	    
 	    <p>Theodore Roosevelt National Park is a United States National Park comprising three geographically separated areas of badlands in western North Dakota. The park was named for U.S. President Theodore Roosevelt. The park covers 70,446 acres of land in three sections: the North Unit, the South Unit, and the Elkhorn Ranch Unit.
 
 The park's larger South Unit lies alongside Interstate 94 near Medora, North Dakota. The smaller North Unit is situated about 80 mi (130 km) north of the South Unit, on U.S. Highway 85, just south of Watford City, North Dakota. Roosevelt's Elkhorn Ranch is located between the North and South units, approximately 20 mi (32 km) west of US 85 and Fairfield, North Dakota. The Little Missouri River flows through all three units of the park. The Maah Daah Hey Trail connects all three units.</p>
