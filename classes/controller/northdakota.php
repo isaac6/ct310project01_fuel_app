@@ -11,21 +11,20 @@
  */
 class Controller_NorthDakota extends Controller
 {
+    
 	/**
 	 * Index page
 	 *
 	 * @access  public
 	 * @return  View
 	 */
-	public function action_index()
-	{
-		$views = array();
-
+	public function action_index(){
+		  $views = array();
+		  $status = 'success';
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
         $views['authentication'] = View::forge('northdakota/authentication')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
-
         return View::forge('northdakota/index', $views);
 	}
     /*
@@ -35,7 +34,6 @@ class Controller_NorthDakota extends Controller
     */
     public function action_aboutus(){
         $views = array();
-
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
@@ -91,33 +89,20 @@ class Controller_NorthDakota extends Controller
         return View::forge('northdakota/attraction3', $views);
     }
 
-	/**
+	/*
 	 * The 404 action for the application.
 	 *
 	 * @access  public
 	 * @return  Response
 	 */
-	public function action_404()
-	{
-		return Response::forge(Presenter::forge('northdakota/404'), 404);
- /**
-   * Authentication
-   */
-	}
-  public function action_loginForm()
-	{
-		$status = 'success';
-
-		$content = $this->action_index();
-
-		$content -> set_safe('status',$status);
-
-		return $content;
+  public function action_404()
+  {
+	return Response::forge(Presenter::forge('northdakota/404'), 404);
 	}
 
 	public function action_checkLogin()
 	{
-		
+    session_start();
 		$username = Input::post('username');
 
 		$password = Input::post('password');
@@ -131,9 +116,9 @@ class Controller_NorthDakota extends Controller
 			
 			Session::set('userid', 12345); 
       
-      Session::set('authenticated', true); 
+      	Session::set('authenticated', true); 
       
-      $_SESSION['authentication']= TRUE;  
+      	$_SESSION['authentication']= true;
 
 			$content = $this->action_index();
       
@@ -149,7 +134,7 @@ class Controller_NorthDakota extends Controller
 			
 			Session::set('userid', 123456);  
       
-      $_SESSION['authentication']= TRUE;  
+      	$_SESSION['authentication']= true;
 
 			$content = $this->action_index();
       
@@ -165,7 +150,7 @@ class Controller_NorthDakota extends Controller
 			
 			Session::set('userid', 1234567);  
       
-      $_SESSION['authentication']= TRUE;  
+      	$_SESSION['authentication']=  true;
 
 			$content = $this->action_index();
       
