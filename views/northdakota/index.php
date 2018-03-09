@@ -15,15 +15,6 @@
 
     <div id="content">
 
-        <?php 
-            $authd = Session::get('authenticated');
-            if ($authd === true) {
-                echo $loggedin;
-            } else {
-                echo $authentication;
-            }
-        ?>
-
 		<div id="main">
 		    <h1>Home</h1>
 		    <p>North Dakota is a state in the midwestern and

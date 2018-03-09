@@ -15,15 +15,6 @@
 
     <div id="content">
 
-		<?php
-            $authd = Session::get('authenticated');
-            if ($authd === true) {
-                echo $loggedin;
-            } else {
-                echo $authentication;
-            }
-        ?>
-
 		<div id="main">
 			<h1>Maah Daah Hey Trail</h1>
 		    <a href="https://www.singletracks.com/blog/mtb-trails/badlands-5-best-day-rides-along-maah-daah-hey-trail/"><img src="<?php echo Uri::create('assets/img/trail.jpg'); ?>"/></a>
@@ -31,18 +22,9 @@
 				 16 miles south of Watford City. The Trail winds through the Little Missouri National Grasslands in North Dakota's Badlands to form the longest continuous singletrack mountain biking
 				  trail in America. Nine fenced campgrounds are accessible by gravel surfaced roads. The campgrounds include camping spurs, potable water, hitching rails, picnic tables, fire rings
 				   and accessible toilets.</p>
-		    <h2>Comments</h2>
-	      <?php $session = Session::instance();
-	            $authentication = $session->get('authentication');
-	      ?>
-	      <?php if ($authentication==TRUE): ?>
-	        <form action="#" method="post">
-	        Type to comment: <input type="text" name="usercomment">
-	        <input type="submit" value="Submit" name="submit">
-	        </form>
-	      <?php elseif ($authentication==FALSE): ?>
-	        You must login to comment on this page. Login <a href='index.php'>here</a>
-	      <?php endif; ?>
+
+			<?php echo $comments; ?>
+
 		</div>
 
     </div>
