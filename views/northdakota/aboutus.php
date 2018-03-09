@@ -15,7 +15,7 @@
 
     <div id="ABcontent">
 	    <h1>About Us</h1>
-<?php echo '<a href="http://www.mappery.com/map-of/north-dakota-map-2"><img src="http://www.cs.colostate.edu/~zachrule/ct310/assets/img/ndmap.jpg"/></a> ' ?>
+		<a href="http://www.mappery.com/map-of/north-dakota-map-2"><img src="<?php echo Uri::create('assets/img/ndmap.jpg'); ?>"/></a>
 
 	    <p>ORIGIN OF STATE NAME: The state was formerly the northern section of Dakota Territory; dakota is a Siouan word meaning "allies."</p>
       <p>NICKNAME: Peace Garden State; Flickertail State.</p>
