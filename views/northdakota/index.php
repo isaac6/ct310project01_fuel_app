@@ -15,7 +15,14 @@
 
     <div id="content">
 
-		<?php echo $authentication; ?>
+        <?php 
+            $authd = Session::get('authenticated');
+            if ($authd === true) {
+                echo $loggedin;
+            } else {
+                echo $authentication;
+            }
+        ?>
 
 		<div id="main">
 		    <h1>Home</h1>
