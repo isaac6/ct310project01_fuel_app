@@ -18,11 +18,9 @@ class Controller_NorthDakota extends Controller
 	 */
 	public function action_index()
 	{
-		$views = array();
+		    $views = array();
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
-        $views['authentication'] = View::forge('northdakota/authentication')->render();
-		$views['loggedin'] = View::forge('northdakota/loggedin')->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
         return View::forge('northdakota/index', $views);
 	}
@@ -45,10 +43,11 @@ class Controller_NorthDakota extends Controller
     */
     public function action_attraction1(){
         $views = array();
+		$comment_views = array();
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
-	    $views['authentication'] = View::forge('northdakota/authentication')->render();
-		$views['loggedin'] = View::forge('northdakota/loggedin')->render();
+		$views['comments'] = View::forge('northdakota/comments', $comment_views)->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
         return View::forge('northdakota/attraction1', $views);
     }
@@ -59,10 +58,11 @@ class Controller_NorthDakota extends Controller
     */
     public function action_attraction2(){
         $views = array();
+		$comment_views = array();
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
-	    $views['authentication'] = View::forge('northdakota/authentication')->render();
-		$views['loggedin'] = View::forge('northdakota/loggedin')->render();
+		$views['comments'] = View::forge('northdakota/comments', $comment_views)->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
         return View::forge('northdakota/attraction2', $views);
     }
@@ -73,13 +73,18 @@ class Controller_NorthDakota extends Controller
     */
     public function action_attraction3(){
         $views = array();
+		$comment_views = array();
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
-	    $views['authentication'] = View::forge('northdakota/authentication')->render();
-		$views['loggedin'] = View::forge('northdakota/loggedin')->render();
+		$views['comments'] = View::forge('northdakota/comments', $comment_views)->render();
         $views['footer'] = View::forge('northdakota/footer')->render();
         return View::forge('northdakota/attraction3', $views);
     }
+	public function action_comment(){
+		$comment = Input::post('comment');
+		echo $comment;
+	}
 	/**
 	 * The 404 action for the application.
 	 *
@@ -93,57 +98,68 @@ class Controller_NorthDakota extends Controller
 	/**
 	  * Authentication forms
 	  */
-	public function action_logout() {
-		Session::destroy();
-		$content = $this->action_index();
-		return $content;
-	}
-  	public function action_loginForm()
-	{
-		$status = 'success';
-		$content = $this->action_index();
-		$content -> set_safe('status',$status);
-		return $content;
-	}
-	public function action_checkLogin()
-	{
+	public function action_login()
+  	{
+  		$views = array();
+		$views['loginmsg'] = null;
 		$username = Input::post('username');
 		$password = Input::post('password');
-		if($username === 'ct310' && md5($password) === '48f2f942692b08ec9de1ef9ada5230a3')
-		{
-			Session::create();
-			Session::set('username', $username);
-			Session::set('userid', 12345);
-	      	Session::set('authenticated', true);
-	      	$_SESSION['authentication']= TRUE;
-			$content = $this->action_index();
-			return $content;
+		if ($password === null && $username === null) {
+			if (Session::get('authenticated') === true) {
+				$views['authentication'] = View::forge('northdakota/loggedin')->render();
+			} else {
+				$views['authentication'] = View::forge('northdakota/authentication')->render();
+			}
+		} else {
+			if($username === 'ct310' && md5($password) === '48f2f942692b08ec9de1ef9ada5230a3')
+			{
+				Session::create();
+				Session::set('username', $username);
+				Session::set('userid', 12345);
+		      	Session::set('authenticated', true);
+				$views['authentication'] = View::forge('northdakota/loggedin')->render();
+				$data = array();
+				$data['loginmsg'] = 'User ' . $username . ' logged in successfully at: ' . date("Y.m.d h:i:sa");
+				$views['loginmsg'] = View::forge('northdakota/loginmsg', $data)->render();
+			}
+	    	elseif($username === 'zach' && md5($password) === '7cf2db5ec261a0fa27a502d3196a6f60')
+	    	{
+	      		Session::create();
+				Session::set('username', $username);
+				Session::set('userid', 123456);
+				Session::set('authenticated', true);
+				$views['authentication'] = View::forge('northdakota/loggedin')->render();
+				$data = array();
+				$data['loginmsg'] = 'User ' . $username . ' logged in successfully at: ' . date("Y.m.d h:i:sa");
+				$views['loginmsg'] = View::forge('northdakota/loginmsg', $data)->render();
+	    	}
+	    	elseif($username === 'isaac' && md5($password) === '21232f297a57a5a743894a0e4a801fc3')
+	    	{
+	      		Session::create();
+				Session::set('username', $username);
+				Session::set('userid', 1234567);
+				Session::set('authenticated', true);
+				$views['authentication'] = View::forge('northdakota/loggedin')->render();
+				$data = array();
+				$data['loginmsg'] = 'User ' . $username . ' logged in successfully at: ' . date("Y.m.d h:i:sa");
+				$views['loginmsg'] = View::forge('northdakota/loginmsg', $data)->render();
+	    	}
+			else
+			{
+				$views['authentication'] = View::forge('northdakota/authentication')->render();
+				$data = array();
+				$data['loginmsg'] = 'User ' . $username . ' failed to login at: ' . date("Y.m.d h:i:sa");
+				$views['loginmsg'] = View::forge('northdakota/loginmsg', $data)->render();
+			}
 		}
-    	elseif($username === 'zach' && md5($password) === '7cf2db5ec261a0fa27a502d3196a6f60')
-    	{
-      		Session::create();
-			Session::set('username', $username);
-			Session::set('userid', 123456);
-			Session::set('authenticated', true);
-      		$_SESSION['authentication']= TRUE;
-			$content = $this->action_index();
-			return $content;
-    	}
-    	elseif($username === 'isaach' && md5($password) === '21232f297a57a5a743894a0e4a801fc3')
-    	{
-      		Session::create();
-			Session::set('username', $username);
-			Session::set('userid', 1234567);
-			Session::set('authenticated', true);
-      		$_SESSION['authentication']= TRUE;
-			$content = $this->action_index();
-			return $content;
-    	}
-		else
-		{
-			$content = $this->action_index();
-			$content->set_safe('status','error');
-			return $content;
-		}
+        $views['header'] = View::forge('northdakota/header')->render();
+        $views['navigation'] = View::forge('northdakota/navigation')->render();
+        $views['footer'] = View::forge('northdakota/footer')->render();
+        return View::forge('northdakota/login', $views);
+  	}
+	public function action_logout() {
+		Session::destroy();
+		$content = $this->action_login();
+		return $content;
 	}
 }
