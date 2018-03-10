@@ -114,7 +114,7 @@ class Controller_NorthDakota extends Controller
 	 */
 	public function action_404()
 	{
-		return Response::forge(Presenter::forge('northdakota/404'), 404);
+		return Response::forge(View::forge('northdakota/404'), 404);
 	}
 
 	/**
