@@ -51,7 +51,10 @@ class Controller_NorthDakota extends Controller
     public function action_attraction1(){
         $views = array();
 		$comment_views = array();
-		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
+		$data = array();
+		$data['pagename'] = 'attraction1';
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment', $data)->render();
+		$comment_views['comment'] = Input::post('comment');
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
@@ -69,7 +72,10 @@ class Controller_NorthDakota extends Controller
     public function action_attraction2(){
         $views = array();
 		$comment_views = array();
-		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
+		$data = array();
+		$data['pagename'] = 'attraction2';
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment', $data)->render();
+		$comment_views['comment'] = Input::post('comment');
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
@@ -87,7 +93,10 @@ class Controller_NorthDakota extends Controller
     public function action_attraction3(){
         $views = array();
 		$comment_views = array();
-		$comment_views['addcomment'] = View::forge('northdakota/addcomment')->render();
+		$data = array();
+		$data['pagename'] = 'attraction3';
+		$comment_views['addcomment'] = View::forge('northdakota/addcomment', $data)->render();
+		$comment_views['comment'] = Input::post('comment');
 
         $views['header'] = View::forge('northdakota/header')->render();
         $views['navigation'] = View::forge('northdakota/navigation')->render();
@@ -96,13 +105,6 @@ class Controller_NorthDakota extends Controller
 
         return View::forge('northdakota/attraction3', $views);
     }
-
-	public function action_comment(){
-		$comment = Input::post('comment');
-		echo $comment;
-		$content = $this->action_index();
-		return $content;
-	}
 
 	/**
 	 * The 404 action for the application.
