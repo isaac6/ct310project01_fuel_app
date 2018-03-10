@@ -134,7 +134,7 @@ class Controller_NorthDakota extends Controller
 				$views['authentication'] = View::forge('northdakota/authentication')->render();
 			}
 		} else {
-			if($username === 'ct310' && md5($password) === '48f2f942692b08ec9de1ef9ada5230a3')
+			if($username === 'ct310' && md5($password) === 'a6cebbf02cc311177c569525a0f119d7')
 			{
 				Session::create();
 				Session::set('username', $username);
